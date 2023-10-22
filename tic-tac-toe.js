@@ -1,17 +1,24 @@
+const squares = document.querySelectorAll('#board div');
+
 document.addEventListener('DOMContentLoaded', function () {
-    // Function to initialize the game board
     function initializeBoard() {
-      const squares = document.querySelectorAll('#board div');
-  
-      // Add the 'square' class to each square
       squares.forEach(square => {
         square.classList.add('square');
+        square.addEventListener('click', function(){
+            if (!square.classList.contains('X') && !square.classList.contains('O')){
+                const player = gameState.length % 2 === 0 ? 'X' : 'O';
+                square.classList.add(player);
+                gameState[index] = player;
+            }
+
+        })
       });
     }
   
-    // Call the initializeBoard function when the page loads
     initializeBoard();
   });
+
+
 
   
   
