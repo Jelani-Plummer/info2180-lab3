@@ -34,8 +34,14 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < gameState.length; i += 3) {
             Lines.push(gameState.slice(i, i + 3));
           }
+        const verticalLine1 = [gameState[0],gameState[3],gameState[6]];
+        const verticalLine2 = [gameState[1],gameState[4],gameState[7]];
+        const verticalLine3 = [gameState[2],gameState[5],gameState[8]];
         const diagonalLine1 = [gameState[0],gameState[4],gameState[8]];
         const diagonalLine2 = [gameState[2],gameState[4],gameState[6]];
+        Lines.push(verticalLine1);
+        Lines.push(verticalLine2);
+        Lines.push(verticalLine3);
         Lines.push(diagonalLine1);
         Lines.push(diagonalLine2);
         Lines.forEach(line =>{
@@ -47,7 +53,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    
+    const newGameButton = document.getElementsByClassName('btn')[0];
+    newGameButton.addEventListener('click', function(){
+        location.reload();
+    })
+
+
     initializeBoard();
   });
 
